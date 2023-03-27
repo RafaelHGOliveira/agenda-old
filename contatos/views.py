@@ -4,7 +4,6 @@ from .models import Contato
 from django.core.paginator import Paginator
 
 
-
 def index(request):
     contatos = Contato.objects.filter(mostrar=True)
     paginator = Paginator(contatos, 3)
