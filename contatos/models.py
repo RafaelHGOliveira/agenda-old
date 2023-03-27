@@ -7,7 +7,6 @@ class Categoria(models.Model):
     def __str__(self):
         return self.nome
     
-    
 class Contato(models.Model):
     nome = models.CharField(max_length=150)
     sobrenome = models.CharField(max_length=150, blank=True)
@@ -16,6 +15,7 @@ class Contato(models.Model):
     data_criacao = models.DateTimeField(auto_now_add=True)
     descricao = models.TextField(blank=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)
+    mostrar = models.BooleanField(default=True)
     
     def __str__(self):
         return self.nome
