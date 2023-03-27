@@ -5,7 +5,9 @@ from django.core.paginator import Paginator
 
 
 def index(request):
-    contatos = Contato.objects.filter(mostrar=True)
+    contatos = Contato.objects.order_by('id').filter(
+        mostrar=True
+    )
     paginator = Paginator(contatos, 3)
     p = request.GET.get('p')
     contatos = paginator.get_page(p)
